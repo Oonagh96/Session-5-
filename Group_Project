@@ -1,0 +1,23 @@
+import random
+import requests
+
+random_integer = random.randint(1, 151)
+player_pokemon_id = random.randint(1, 151)
+print(f'Your pokemon ID number is {random_integer}')
+
+
+
+url = f'https://pokeapi.co/api/v2/pokemon/{player_pokemon_id}/'
+
+response = requests.get(url)
+pokemon = response.json()
+
+player_pokemon_id = (pokemon['id'])
+player_pokemon_name = (pokemon['name'])
+player_pokemon_height = (pokemon['height'])
+player_pokemon_weight = (pokemon['weight'])
+
+print(f"your pokemons ID is", pokemon['id'])
+print(f"your pokemons name is", pokemon['name'])
+print(f"your pokemons height is", pokemon['height'])
+print(f"your pokemons weight is", pokemon['weight'])
